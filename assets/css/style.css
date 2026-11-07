@@ -1,0 +1,133 @@
+:root {
+    --gris: #161616;
+    --noir: #000000;
+    --rouge: rgb(71, 5, 5);
+    --rougefonce: rgb(49, 5, 5);
+}
+
+body {
+    background-color: var(--gris);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.banner {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.banner > img{
+    width: 50%;
+}
+
+.banner > div {
+    position: relative;
+    width: 50%;
+}
+
+.banner > div::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    background:
+        linear-gradient(to right, var(--gris) 0%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, var(--gris) 100%);
+}
+
+
+
+#affiche {
+    position: relative;
+    margin-top: 50px;
+    margin-left: 70px;
+    font-size: 2rem;
+}
+
+
+.film {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-left: 70px;
+    margin-right: 70px;
+
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.film::-webkit-scrollbar {
+    height: 8px;
+    padding: 20px;
+}
+
+.film::-webkit-scrollbar-track {
+    background: var(--noir);
+    border-radius: 10px;
+}
+
+.film::-webkit-scrollbar-thumb {
+    background: var(--rouge);
+    border-radius: 10px;
+}
+
+.film::-webkit-scrollbar-thumb:hover {
+    background: var(--rougefonce);
+}
+
+.carte {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.carte img {
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.carte img:hover {
+    transform: scale(1.08) rotate(-3deg);
+    filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.7));
+}
+
+.carte img:active {
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}
+
+.carte h2 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+main {
+    flex: 1;
+}
+
+
+.formLink {
+    color: white;
+}
+
+.formLink:hover {
+    text-decoration: underline;
+}
