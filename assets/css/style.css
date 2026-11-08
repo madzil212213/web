@@ -14,44 +14,141 @@ body {
 }
 
 
-.banner {
-    display: flex;
+.carroussel {
+    position: relative;
     width: 100%;
+    height: 600px;
     overflow: hidden;
 }
 
-.banner img {
+.slide1,
+.slide2,
+.slide3,
+.slide4 {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.carroussel img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.banner > img{
-    width: 50%;
+.carroussel > div > img {
+    position: absolute;
+    width: 20%;
+    margin-left: 15%;
+    margin-top: 5%;
 }
 
-.banner > div {
+.carroussel > div > img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.7));
+}
+
+.carroussel > div > img:active {
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}
+
+.carroussel > div > p {
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 15%;
+    margin-right: 53%;
+    font-size: clamp(10px, 1.2vw, 18px);
+    overflow-wrap: break-word;
+    font-weight: bold;
+}
+
+.carroussel > div > p::first-letter {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.carroussel > div > div > img {
     position: relative;
     width: 50%;
+    margin-left: 50%;
 }
 
-.banner > div::after {
+
+.carroussel > div > div::after {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
     pointer-events: none;
     z-index: 1;
-
+    width: 50%;
+    aspect-ratio: 16 / 9;
+        
     background:
         linear-gradient(to right, var(--gris) 0%, transparent 100%),
-        linear-gradient(to bottom, transparent 0%, var(--gris) 100%);
+        linear-gradient(to top, var(--gris), transparent);
+}
+
+#logo {
+    width: 15%;
+}
+
+
+.slide1 {
+    animation: defilement 40s infinite;
+    animation-delay: 0s;
+}
+
+.slide2 {
+    animation: defilement 40s infinite;
+    animation-delay: -30s;
+}
+
+.slide3 {
+    animation: defilement 40s infinite;
+    animation-delay: -20s;
+}
+
+.slide4 {
+    animation: defilement 40s infinite;
+    animation-delay: -10s;
+}
+
+
+.slide1 { z-index: 1; }
+.slide2 { z-index: 2; }
+.slide3 { z-index: 3; }
+.slide4 { z-index: 4; }
+
+@keyframes defilement {
+    0%, 2.5% {
+        opacity: 0;
+        z-index: 0;
+    }
+
+    5%, 20% {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    22.5%, 100% {
+        opacity: 0;
+        z-index: 0;
+    }
 }
 
 
 
 #affiche {
     position: relative;
-    margin-top: 50px;
+    margin-top: 58px;
     margin-left: 70px;
     font-size: 2rem;
 }
@@ -66,7 +163,7 @@ body {
     margin-left: 70px;
     margin-right: 70px;
 
-    padding: 20px;
+    padding: 38px;
     margin-bottom: 50px;
 }
 
@@ -115,7 +212,7 @@ body {
 
 .carte h2 {
     font-size: 1.5rem;
-    margin-top: 15px;
+    margin-top: 25px;
     margin-bottom: 50px;
 }
 

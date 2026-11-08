@@ -16,6 +16,11 @@ header {
     background-color: var(--noir);
 }
 
+header>a>img {
+    position:relative;
+    top: 3px;
+}
+
 nav {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
